@@ -2,6 +2,8 @@
 
 This module creates an API Gateway REST API from an Open API (Swagger) specification.  AWS provides a number of extensions to the Open API specification, and this module contains a number of submodules to simplify creating an OpenAPI document that implements the AWS extensions.
 
+**Note:** Pre 1.0.0 this will be considered a beta module and may have breaking changes between minor and patch versions.
+
 ## Primary Submodules
 
 - [API Gateway](modules/api-gateway/README.md)

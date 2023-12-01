@@ -18,6 +18,7 @@ module "spec" {
     module.index_route.json,
     module.media_route.json,
     module.mock_route.json,
+    module.lambda_proxy_route.json
   ]
 
   models = {

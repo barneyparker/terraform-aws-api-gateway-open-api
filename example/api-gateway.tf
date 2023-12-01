@@ -14,6 +14,7 @@ module "api" {
   domain  = var.domain
 
   iam_policies = [
-    data.aws_iam_policy_document.s3_access.json
+    data.aws_iam_policy_document.s3_access.json,
+    data.aws_iam_policy_document.lambda.json,
   ]
 }

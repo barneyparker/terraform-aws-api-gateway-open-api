@@ -11,3 +11,27 @@ module "function" {
   memory_size  = 128
   timeout      = 3
 }
+
+module "lambda_proxy_route" {
+  source = "../modules/route"
+
+  path = "/lambda"
+  handlers = [
+    module.lambda_proxy.json
+  ]
+}
+
+
+module "lambda_proxy" {
+  source = "../modules/lambda-proxy"
+
+  method     = "get"
+  invoke_arn = module.function.invoke_arn
+}
+
+data "aws_iam_policy_document" "lambda" {
+  statement {
+    actions   = ["lambda:InvokeFunction"]
+    resources = ["*"]
+  }
+}
