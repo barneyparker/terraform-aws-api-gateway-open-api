@@ -1,0 +1,33 @@
+      "${lower(method)}": {
+        "responses": {
+          "200": {
+            "description": "200 OK",
+            "headers": {
+              "Content-Type": {
+                "schema": {
+                  "$ref": "#/components/schemas/${model_name}"
+                }
+              }
+            },
+            "content": {}
+          }
+        },
+        "x-amazon-apigateway-integration": {
+          "type": "mock",
+          "responses": {
+            "default": {
+              "statusCode": "200",
+              "responseParameters": {
+                "method.response.header.Content-Type": "'${content_type}'"
+              },
+              "responseTemplates": {
+                "${content_type}": "${response_body}"
+              }
+            }
+          },
+          "requestTemplates": {
+            "application/json": "{ \"statusCode\": 200 }"
+          },
+          "passthroughBehavior": "when_no_match"
+        }
+      }

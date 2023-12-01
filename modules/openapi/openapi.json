@@ -1,0 +1,22 @@
+{
+  "openapi": "${spec_version}",
+%{if (info != null) ~}
+  "info": {
+    "title": "${info.title}",
+    "description": "${info.description}",
+    "version": "${info.version}"
+  },
+%{endif ~}
+%{ if (servers != null && length(servers) > 0)~}
+  "servers": [
+    ${servers}
+  ],
+%{ endif ~}
+  "paths": {
+    ${routes}
+  },
+  "components": {
+    "schemas": {
+    }
+  }
+}
