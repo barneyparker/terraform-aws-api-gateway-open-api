@@ -10,8 +10,9 @@ Designed to be used with the with the Route and OpenAPI modules.
 module "lambda_proxy_integration" {
   source = "barneyparker/api-gateway-open-api//lambda-proxy"
 
-  method = "get"
+  method     = "get"
   invoke_arn = aws_lambda_function.example.invoke_arn
+  arn        = aws_lambda_function.example.arn
 }
 ```
 
@@ -21,7 +22,8 @@ module "lambda_proxy_integration" {
 |------|-------------|------|---------|:--------:|
 | method | The HTTP method for the integration | `string` | 'get' | no |
 | invoke\_arn | The Invoke ARN of the Lambda function to integrate with | `string` | n/a | yes |
-
+| arn | The ARN of the Lambda function to integrate with | `string` | n/a | yes |
+| api_execution_arn | The Execution ARN of the API Gateway (required for Lambda permission) | `string` | n/a | yes |
 ## Outputs
 
 | Name | Description |

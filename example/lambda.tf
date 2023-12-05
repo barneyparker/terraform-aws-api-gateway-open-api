@@ -25,8 +25,10 @@ module "lambda_proxy_route" {
 module "lambda_proxy" {
   source = "../modules/lambda-proxy"
 
-  method     = "get"
-  invoke_arn = module.function.invoke_arn
+  method            = "get"
+  invoke_arn        = module.function.invoke_arn
+  arn               = module.function.arn
+  api_execution_arn = module.api.execution_arn
 }
 
 data "aws_iam_policy_document" "lambda" {
