@@ -48,3 +48,4 @@ module "api" {
 |------|-------------|
 | role_arn | The ARN of the API Gateway role |
 | role_name | The name of the API Gateway role |
+| execution_arn | The Execution ARN of the API Gateway (required for Lambda-Proxy execution) |
