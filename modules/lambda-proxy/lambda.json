@@ -15,6 +15,6 @@
     },
     "passthroughBehavior" : "when_no_match",
     "contentHandling" : "CONVERT_TO_TEXT",
-    "type" : "aws"
+    "type" : "aws_proxy"
   }
 }
